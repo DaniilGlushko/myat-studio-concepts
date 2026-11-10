@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Концепт 3 · «По минутам» — Мять, Ботанический сад</title>
+<meta name="description" content="Прототип редизайна страницы студии «Мять» на Ботаническом саду. Концепт 3: день студии и сеанс на одной шкале времени, цены — прейскурантом.">
+<meta name="robots" content="noindex">
+<style>
+@font-face{font-family:"Geologica";src:url(../fonts/geologica-latin.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Geologica";src:url(../fonts/geologica-latin-ext.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0100-02BA,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2113}
+@font-face{font-family:"Geologica";src:url(../fonts/geologica-cyrillic.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"JetBrains Mono";src:url(../fonts/jetbrains-mono-latin.woff2) format("woff2");font-weight:100 800;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"JetBrains Mono";src:url(../fonts/jetbrains-mono-latin-ext.woff2) format("woff2");font-weight:100 800;font-display:swap;unicode-range:U+0100-02BA,U+1E00-1E9F,U+20A0-20AB,U+20AD-20C0,U+2113}
+@font-face{font-family:"JetBrains Mono";src:url(../fonts/jetbrains-mono-cyrillic.woff2) format("woff2");font-weight:100 800;font-display:swap;unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+
+:root{
+  --paper:#F6F5F1; --panel:#ECEAE4; --white:#FDFDFB;
+  --ink:#15171A; --ink-2:#474C52; --ink-3:#6B7178;
+  --line:rgba(21,23,26,.16); --line-2:rgba(21,23,26,.08);
+  --sig:#DC5A22; --sig-d:#B4410F; --sig-soft:rgba(220,90,34,.13);
+  --sans:"Geologica",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --gut:clamp(18px,4vw,56px);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;background:var(--paper);color:var(--ink);font:300 17px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:1360px;margin:0 auto;padding-inline:var(--gut)}
+.mono{font:500 12px/1.35 var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+.num{font-weight:400;font-variant-numeric:tabular-nums;white-space:nowrap}
+.arr{width:1em;height:1em;flex:none;transition:transform .35s var(--ease)}
+a:hover>.arr{transform:translateX(4px)}
+:focus-visible{outline:2px solid var(--sig);outline-offset:3px}
+
+.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:26px;height:64px}
+.logo img{height:19px;width:auto}
+.where{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.where i{width:7px;height:7px;background:var(--sig);border-radius:50%}
+.nav{display:flex;gap:24px;margin-left:auto;font-size:15px;font-weight:400;color:var(--ink-2)}
+.nav a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:6px}
+.tel{font-size:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border-radius:8px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);font:500 15.5px/1 var(--sans);white-space:nowrap;transition:background .25s,border-color .25s,color .25s,transform .25s var(--ease)}
+.btn:hover{background:var(--sig-d);border-color:var(--sig-d)}
+.btn:active{transform:scale(.98)}
+.btn--line{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn--line:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.btn--sm{min-height:40px;padding:0 16px;font-size:14.5px}
+
+/* ── первый экран ── */
+.hero{padding:clamp(28px,4.4vw,60px) 0 0}
+.hero-t{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(24px,5vw,80px);align-items:end}
+.hero h1{margin:14px 0 0;font:300 clamp(2.9rem,7.2vw,6.9rem)/.95 var(--sans);letter-spacing:-.045em}
+.hero h1 b{font-weight:300;color:var(--sig-d)}
+.lead{margin:0 0 22px;color:var(--ink-2);max-width:30em}
+.cta{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.first{font-size:14.5px;color:var(--ink-2)}
+.first b{color:var(--ink);font-weight:500}
+
+/* шкала дня */
+.day{margin-top:clamp(28px,4vw,52px);border:1px solid var(--line);border-radius:14px;background:var(--white)}
+.day-h{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;justify-content:space-between;padding:16px 22px;border-bottom:1px solid var(--line)}
+.status{display:flex;align-items:center;gap:10px;font:400 16px/1.3 var(--sans)}
+.status i{flex:none}
+.status i{width:9px;height:9px;border-radius:50%;background:var(--sig);box-shadow:0 0 0 0 var(--sig-soft);animation:pulse 2.2s infinite}
+.status.closed i{background:var(--ink-3);animation:none}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(220,90,34,0)}100%{box-shadow:0 0 0 0 rgba(220,90,34,0)}}
+.durs{display:flex;gap:6px;align-items:center}
+.durs button{min-height:40px;padding:0 14px;border:1px solid var(--line);border-radius:8px;background:transparent;font:500 13.5px/1 var(--mono);transition:background .2s,color .2s,border-color .2s}
+.durs button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.rul-w{padding:18px 34px 14px}
+.rul{position:relative;height:128px;cursor:ew-resize;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.rul::before{content:"";position:absolute;left:0;right:0;top:56px;height:22px;
+  background:
+   linear-gradient(90deg,var(--ink) 0 1px,transparent 1px) 0 0/calc(100%/12) 22px repeat-x,
+   linear-gradient(90deg,var(--line) 0 1px,transparent 1px) calc(100%/24) 10px/calc(100%/12) 12px repeat-x;
+  border-right:1px solid var(--ink);border-top:1px solid var(--ink)}
+.morning{position:absolute;left:0;top:56px;width:calc(100%/3);height:22px;background:var(--sig-soft);pointer-events:none}
+.morning span{position:absolute;left:0;top:54px;font:500 11.5px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--sig-d);white-space:nowrap}
+.hrs{position:absolute;left:0;right:0;top:86px;height:20px;pointer-events:none}
+.hrs span{position:absolute;left:calc(var(--h)/12*100%);transform:translateX(-50%);font:500 12px/1 var(--mono);color:var(--ink-3)}
+.sess{position:absolute;top:50px;height:30px;left:0;width:calc(100%/12);border:1.5px solid var(--ink);border-radius:6px;background:rgba(21,23,26,.9);transition:left .45s var(--ease),width .45s var(--ease);pointer-events:none}
+.sess span{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);padding:5px 9px;border-radius:5px;background:var(--ink);color:var(--paper);font:500 12px/1 var(--mono);white-space:nowrap}
+.now{position:absolute;top:16px;bottom:44px;width:0;border-left:2px solid var(--sig);pointer-events:none;transition:left 1s linear}
+.now span{position:absolute;left:-1px;top:-16px;transform:translateX(-50%);font:600 12px/1 var(--mono);color:var(--sig-d);white-space:nowrap}
+.day-f{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 28px;align-items:center;padding:16px 22px;border-top:1px solid var(--line)}
+.day-f p{margin:0;font-size:16px}
+.day-f p b{font-weight:500}
+.day-f small{display:block;margin-top:3px;font-size:13.5px;color:var(--ink-3)}
+
+/* ── секции ── */
+section{padding:clamp(52px,7.5vw,112px) 0}
+.sh{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(18px,5vw,80px);align-items:end;margin-bottom:clamp(24px,3.4vw,44px)}
+.sh h2{margin:10px 0 0;font:300 clamp(2.1rem,4.6vw,4rem)/1 var(--sans);letter-spacing:-.04em}
+.sh p{margin:0;color:var(--ink-2);max-width:32em}
+
+/* прейскурант */
+.pl{border-top:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.3fr) minmax(120px,.9fr) 150px 126px;gap:22px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+.row h3{margin:0;font:400 22px/1.15 var(--sans);letter-spacing:-.02em}
+.row p{margin:0;font-size:14.5px;line-height:1.45;color:var(--ink-2)}
+.row .tag{display:inline-block;margin-right:8px;padding:3px 7px;border-radius:4px;background:var(--sig-soft);color:var(--sig-d);font:600 11px/1.2 var(--mono);letter-spacing:.05em;text-transform:uppercase;vertical-align:.2em}
+.bar-t{display:flex;align-items:center;gap:10px}
+.bar-t i{display:block;flex:none;height:10px;width:calc(var(--m)/90*(100% - 68px));background:var(--ink);border-radius:2px;transform-origin:left}
+.bar-t span{flex:none;width:58px;font:500 13px/1 var(--mono);color:var(--ink-2)}
+.row .pr{font-size:17px;text-align:right}
+.row.has-sub{border-bottom:0;padding-bottom:10px}
+.row.sub{padding-top:0}
+.row.promo{background:linear-gradient(90deg,var(--sig-soft),transparent 70%);margin-inline:-14px;padding-inline:14px}
+.note{margin:18px 0 0;font-size:14.5px;color:var(--ink-3);max-width:46em}
+
+/* мастера */
+.ms{background:var(--panel)}
+.sort{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:flex-end}
+.sort button{min-height:40px;padding:0 14px;border:1px solid var(--line);border-radius:8px;background:transparent;font:400 14.5px/1 var(--sans)}
+.sort button[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ml{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.ml li{display:grid;grid-template-columns:64px minmax(0,.8fr) minmax(0,1.5fr) minmax(110px,.8fr) 100px 126px;gap:22px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line)}
+.ml img{width:64px;height:64px;border-radius:8px;object-fit:cover;background:var(--white)}
+.ml h3{margin:0;font:400 22px/1.15 var(--sans);letter-spacing:-.02em}
+.ml .meta{margin-top:5px}
+.ml p{margin:0;font-size:14.5px;line-height:1.45;color:var(--ink-2)}
+.ml p a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px;white-space:nowrap}
+.pbar{height:10px;background:rgba(21,23,26,.1);border-radius:2px;overflow:hidden}
+.pbar i{display:block;height:100%;width:calc((var(--p) - 2500)/2000*100%);background:var(--ink);transform-origin:left}
+.ml .pr{font-size:18px;text-align:right}
+.js .grow{transform:scaleX(0);transition:transform 1s var(--ease)}
+.js .in .grow,.js .grow.in{transform:none}
+
+/* принципы и цифры */
+.why{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink)}
+.why div{padding:22px 22px 26px 0;border-bottom:1px solid var(--line)}
+.why div+div{padding-left:22px;border-left:1px solid var(--line)}
+.why h3{margin:12px 0 8px;font:400 21px/1.2 var(--sans);letter-spacing:-.02em}
+.why p{margin:0;font-size:15px;line-height:1.5;color:var(--ink-2)}
+.board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,2.2fr);gap:0;margin-top:0;border-bottom:1px solid var(--ink)}
+.board>div{padding:22px 22px 22px 0}
+.board>div+div{padding-left:22px;border-left:1px solid var(--line)}
+.board b{display:block;font:500 clamp(1.6rem,2.6vw,2.3rem)/1 var(--mono);letter-spacing:-.05em;white-space:nowrap}
+.board span{display:block;margin-top:8px;font-size:13.5px;line-height:1.35;color:var(--ink-2)}
+.board blockquote{margin:0;display:grid;grid-template-columns:48px minmax(0,1fr);gap:14px;align-items:start}
+.board blockquote img{width:48px;height:48px;border-radius:8px;object-fit:cover}
+.board blockquote p{margin:0 0 6px;font:300 17px/1.4 var(--sans)}
+.board cite{font-style:normal;font-size:13px;color:var(--ink-3)}
+
+/* студия */
+.place{background:var(--ink);color:var(--paper)}
+.place .mono{color:#A9ADB2}
+.place-g{display:grid;grid-template-columns:minmax(0,1fr) 230px;gap:clamp(24px,6vw,96px);align-items:start}
+.place h2{margin:10px 0 28px;font:300 clamp(2.1rem,4.6vw,4rem)/1 var(--sans);letter-spacing:-.04em}
+.pf{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid rgba(246,245,241,.5)}
+.pf div{padding:16px 18px 16px 0;border-bottom:1px solid rgba(246,245,241,.16)}
+.pf dd{margin:6px 0 0;font-size:18px;font-weight:400;line-height:1.35}
+.pf small{display:block;font-size:14px;font-weight:300;color:#B9BCC0}
+.walk{display:flex;align-items:center;gap:10px;margin-top:8px}
+.walk i{display:block;height:8px;width:calc(16/90*100%);background:var(--sig);border-radius:2px}
+.place .cta{margin-top:26px}
+.place .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.place .btn:hover{background:var(--sig);border-color:var(--sig);color:#fff}
+.place .btn--line{background:transparent;color:var(--paper);border-color:rgba(246,245,241,.3)}
+.place .btn--line:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.room{margin:0}
+.room img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:10px}
+.room figcaption{margin-top:10px;font-size:13px;color:#A9ADB2}
+
+/* сертификат */
+.gift-g{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:clamp(22px,4vw,64px);align-items:center;padding:clamp(20px,3vw,36px);border:1px solid var(--line);border-radius:14px;background:var(--white)}
+.gift-g img{width:150px;mix-blend-mode:multiply}
+.gift h2{margin:8px 0 8px;font:300 clamp(1.8rem,3.2vw,2.6rem)/1.05 var(--sans);letter-spacing:-.035em}
+.gift p{margin:0 0 14px;color:var(--ink-2);font-size:15.5px}
+.sums{display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;list-style:none}
+.sums li{padding:7px 12px;border:1px solid var(--line);border-radius:6px;font:500 13.5px/1.2 var(--mono)}
+
+.foot{border-top:1px solid var(--line);padding:40px 0 52px;font-size:14.5px;color:var(--ink-2)}
+.foot .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:28px}
+.foot img{height:24px;width:auto;margin-bottom:10px}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.foot a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.foot .legal{grid-column:1/-1;padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3);display:flex;flex-wrap:wrap;gap:8px 22px}
+
+.bar{display:none}
+.js .rv{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+
+@media (max-width:1100px){
+  .nav,.tel{display:none}.top .btn{margin-left:auto}
+  .row{grid-template-columns:minmax(0,1fr) minmax(110px,.6fr) 140px 120px}
+  .row p{grid-column:1/-1;grid-row:2;margin-top:-10px}
+  .ml li{grid-template-columns:64px minmax(0,1fr) minmax(90px,.5fr) 96px 120px}
+  .ml p{grid-column:2/-1;grid-row:2;margin-top:-8px}
+  .why{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .why div:nth-child(3){padding-left:0;border-left:0}
+  .board{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .board blockquote{grid-column:1/-1;padding:22px 0!important;border-left:0!important;border-top:1px solid var(--line)}
+  .gift-g{grid-template-columns:auto minmax(0,1fr)}.gift-g .btn{grid-column:1/-1}
+  .foot .wrap{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  body{font-size:16px;padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  .top .wrap{height:58px}.top .btn{display:none}.where{margin-left:auto}
+  .hero-t,.sh,.place-g{grid-template-columns:minmax(0,1fr)}
+  .hero .cta .btn{flex:1 1 100%}
+  .day-h{padding:14px 16px}.rul-w{padding:16px 20px 10px}
+  .hrs span:nth-child(even){display:none}
+  .day-f{grid-template-columns:minmax(0,1fr);padding:14px 16px}
+  .day-f .btn{width:100%}
+  .sort{justify-content:flex-start}
+  .row{grid-template-columns:minmax(0,1fr) auto;gap:10px 14px;padding:18px 0}
+  .row h3{grid-column:1;grid-row:1}
+  .row .pr{grid-column:2;grid-row:1;align-self:baseline}
+  .row p{grid-column:1/-1;grid-row:2;margin:0}
+  .row .bar-t{grid-column:1;grid-row:3}
+  .row .btn{grid-column:2;grid-row:3}
+  .row.has-sub{padding-bottom:6px}
+  .row.sub h3,.row.sub p,.row.sub>span{display:none}
+  .row.sub .bar-t,.row.sub .pr{grid-row:1}
+  .row.promo{margin-inline:-10px;padding-inline:10px}
+  .ml li{grid-template-columns:56px minmax(0,1fr) auto;gap:10px 14px;padding:18px 0}
+  .ml img{width:56px;height:56px}
+  .ml .pr{grid-column:3;grid-row:1}
+  .ml p{grid-column:1/-1;grid-row:2;margin:0}
+  .ml .pbar{grid-column:1/3;grid-row:3;align-self:center}
+  .ml .btn{grid-column:3;grid-row:3}
+  .why{grid-template-columns:minmax(0,1fr)}
+  .why div,.why div+div{padding:18px 0 22px;border-left:0}
+  .board{grid-template-columns:1fr 1fr}
+  .board>div{padding:18px 12px 18px 0!important;border-left:0!important;border-top:1px solid var(--line)}
+  .pf{grid-template-columns:minmax(0,1fr)}
+  .room{width:200px;order:-1}
+  .gift-g{grid-template-columns:minmax(0,1fr)}.gift-g img{width:120px}
+  .bar{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:12px var(--gut) calc(12px + env(safe-area-inset-bottom));background:color-mix(in srgb,var(--paper) 93%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  .bar .btn{flex:1;min-height:52px}
+  .bar .call{flex:none;width:52px;padding:0}
+  .bar svg{width:20px;height:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms!important;animation:none!important}
+  .js .rv,.js .grow{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="out" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ph" viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.58 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1L6.6 10.8z" fill="currentColor"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Мять"><img src="https://myat.studio/wa-data/public/site/themes/myatstudio/logo-black.svg" alt="МЯТЬ" width="69" height="19"></a>
+    <a class="where mono" href="#place"><i></i>Ботанический сад</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#prices">Цены</a>
+      <a href="#masters">Мастера</a>
+      <a href="#place">Студия</a>
+      <a href="#gift">Сертификат</a>
+    </nav>
+    <a class="tel num" href="tel:+79854119172">+7 985 411 91 72</a>
+    <a class="btn btn--sm" href="https://n1480140.yclients.ru/company/1327757/personal/menu?o=" target="_blank" rel="noopener">Записаться</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-t">
+        <div>
+          <p class="mono" style="margin:0">Массаж · студия «Мять» на Ботаническом саду</p>
+          <h1>Час, который <b>целиком ваш.</b></h1>
+        </div>
+        <div>
+          <p class="lead">60 или 90 минут внимательной работы: мастер не торопится и&nbsp;не отвлекается. Цену каждого мастера видно заранее.</p>
+          <div class="cta">
+            <a class="btn" href="https://n1480140.yclients.ru/company/1327757/personal/menu?o=" target="_blank" rel="noopener">Записаться онлайн <svg class="arr"><use href="#arr"/></svg></a>
+            <span class="first">Первый визит&nbsp;— <b class="num">от 2 700&nbsp;₽</b></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day-h">
+          <div class="status" id="status"><i></i><span>Ежедневно 10:00–22:00</span></div>
+          <div class="durs" role="group" aria-label="Длительность сеанса">
+            <span class="mono" style="margin-right:6px">сеанс</span>
+            <button type="button" data-d="30" aria-pressed="false">30 мин</button>
+            <button type="button" data-d="60" aria-pressed="true">60 мин</button>
+            <button type="button" data-d="90" aria-pressed="false">90 мин</button>
+          </div>
+        </div>
+        <div class="rul-w">
+          <div class="rul" id="rul" role="slider" tabindex="0" aria-label="Время начала сеанса" aria-valuemin="600" aria-valuemax="1260" aria-valuenow="1080" aria-valuetext="18:00–19:00">
+            <div class="morning"><span>утром дешевле · будни</span></div>
+            <div class="hrs" aria-hidden="true">
+              <span style="--h:0">10</span><span style="--h:1">11</span><span style="--h:2">12</span><span style="--h:3">13</span><span style="--h:4">14</span><span style="--h:5">15</span><span style="--h:6">16</span><span style="--h:7">17</span><span style="--h:8">18</span><span style="--h:9">19</span><span style="--h:10">20</span><span style="--h:11">21</span><span style="--h:12">22</span>
+            </div>
+            <div class="sess" id="sess" style="left:calc(8/12*100%)"><span id="sess-l">18:00–19:00</span></div>
+            <div class="now" id="now" hidden><span id="now-l"></span></div>
+          </div>
+        </div>
+        <div class="day-f">
+          <p><b id="pick-t">Массаж тела, 60 минут</b> · <span class="num" id="pick-p">3 200–4 500&nbsp;₽</span><small id="pick-n">Передвиньте сеанс по шкале, чтобы прикинуть время. Это примерка: свободные окна покажет онлайн-запись.</small></p>
+          <a class="btn" href="https://n1480140.yclients.ru/company/1327757/personal/menu?o=" target="_blank" rel="noopener">Выбрать свободное время <svg class="arr"><use href="#arr"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prices">
+    <div class="wrap">
+      <div class="sh rv">
+        <div><span class="mono">01 · прейскурант</span><h2>Услуги и&nbsp;цены</h2></div>
+        <p>Полоска показывает, сколько длится сеанс. Вилка в&nbsp;цене&nbsp;— это разница между мастерами: она зависит от уровня мастера и&nbsp;его стажа в&nbsp;«Мять».</p>
+      </div>
+      <div class="pl">
+        <div class="row promo rv"><h3><span class="tag">акция</span>Первый визит</h3><p>Только на первое посещение студии. Не суммируется с&nbsp;сертификатами и&nbsp;другими акциями.</p><div class="bar-t"></div><div class="pr num">2 700–4 000&nbsp;₽</div><a class="btn btn--sm" href="https://n1480140.yclients.ru/company/1327757/personal/menu?o=" target="_blank" rel="noopener">Записаться</a></div>
+        <div class="row promo rv"><h3><span class="tag">акция</span>Утром дешевле</h3><p>Будни, 10:00–14:00 · массаж тела. Не суммируется с&nbsp;сертификатами и&nbsp;другими акциями.</p><div class="bar-t"></div><div class="pr num">3 250–4 250&nbsp;₽</div><a class="btn btn--sm" href="https://n1480140.yclients.ru/company/1327757/personal/menu?o=" target="_blank" rel="noopener">Записаться</a></div>
+        <div class="row has-sub rv"><h3>Массаж тела</h3><p>Классика, спорт или релакс&nbsp;— мастер подберёт темп и&nbsp;силу под ваше тело. Можно выбрать зоны, с&nbsp;которыми работать.</p><div class="bar-t"><i class="grow" style="--m:60"></i><span>60 мин</span></div><div class="pr num">3 200–4 500&nbsp;₽</div><a class="btn btn--sm" href="https://n1480140.yclients.ru/company/1327757/personal/select-master?o=s19817885" target="_blank" rel="noopener">Записаться</a></div>
+        <div class="row sub rv"><h3></h3><p></p><div class="bar-t"><i class="grow" style="--m:90"></i><span>90 мин</span></div><div class="pr num">4 800–7 000&nbsp;₽</div><span></span></div>
+        <div class="row rv"><h3>Массаж лица</h3><p>Размять мышцы лица, подтянуть контур и&nbsp;снять накопленное напряжение.</p><div class="bar-t"><i class="grow" style="--m:60"></i><span>60 мин</span></div><div class="pr num">4 500&nbsp;₽</div><a class="btn btn--sm btn--line" href="https://n1480140.yclients.ru/company/1327757/personal/menu?o=" target="_blank" rel="noopener">Записаться</a></div>
+        <div class="row rv"><h3>Коррекция фигуры</h3><p>Работа с&nbsp;подкожно-жировым слоем: меньше отёков, кожа упругая.</p><div class="bar-t"><i class="grow" style="--m:60"></i><span>60 мин</span></div><div class="pr num">4 000–5 000&nbsp;₽</div><a class="btn btn--sm btn--line" href="https://n1480140.yclients.ru/company/1327757/personal/menu?o=" target="_blank" rel="noopener">Записаться</a></div>
+        <div class="row rv"><h3>Для беременных</h3><p>Мягко и&nbsp;бережно: снять нагрузку со спины и&nbsp;усталость ног.</p><div class="bar-t"><i class="grow" style="--m:60"></i><span>60 мин</span></div><div class="pr num">4 000–5 000&nbsp;₽</div><a class="btn btn--sm btn--line" href="https://n1480140.yclients.ru/company/1327757/personal/menu?o=" target="_blank" rel="noopener">Записаться</a></div>
+        <div class="row rv"><h3>Массаж спины</h3><p>Спина и&nbsp;шейно-воротниковая зона&nbsp;— лёгкость за полчаса.</p><div class="bar-t"><i class="grow" style="--m:30"></i><span>30 мин</span></div><div class="pr num">2 500&nbsp;₽</div><a class="btn btn--sm btn--line" href="https://n1480140.yclients.ru/company/1327757/personal/menu?o=" target="_blank" rel="noopener">Записаться</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ms" id="masters">
+    <div class="wrap">
+      <div class="sh rv">
+        <div><span class="mono">02 · мастера</span><h2>Кто и&nbsp;за сколько</h2></div>
+        <div class="sort" role="group" aria-label="Порядок списка">
+          <span class="mono" style="margin-right:6px">сначала</span>
+          <button type="button" data-s="since" aria-pressed="true">опытнее</button>
+          <button type="button" data-s="price" aria-pressed="false">дешевле</button>
+          <button type="button" data-s="reviews" aria-pressed="false">больше отзывов</button>
+        </div>
+      </div>
+      <ul class="ml" id="ml">
+        <li class="rv" data-price="4500" data-since="2012" data-reviews="21" data-o="0"><img src="https://myat.studio/wa-data/public/site/themes/myatstudio/masters/3942824.jpg" alt="Юрий Ефимов" width="64" height="64" loading="lazy"><div><h3>Юрий</h3><div class="mono meta">основатель · с 2012 · 21 отзыв</div></div><p>Классический и&nbsp;медицинский массаж. Глубокая проработка мышц и&nbsp;собственный комплекс смешанных техник. <a href="https://myat.studio/masters/yuri-efimov/" target="_blank" rel="noopener">О&nbsp;мастере</a></p><div class="pbar"><i class="grow" style="--p:4500"></i></div><div class="pr num">4 500&nbsp;₽</div><a class="btn btn--sm" href="https://n1480140.yclients.ru/company/1327757/personal/select-time?o=m3942824" target="_blank" rel="noopener">Записаться</a></li>
+        <li class="rv" data-price="4500" data-since="2012" data-reviews="27" data-o="1"><img src="https://myat.studio/wa-data/public/site/themes/myatstudio/masters/4934265.jpg" alt="Дмитрий" width="64" height="64" loading="lazy"><div><h3>Дмитрий</h3><div class="mono meta">с 2012 · 27 отзывов</div></div><p>Спортивная реабилитация, мягкие мануальные техники. Богатый набор приёмов и&nbsp;точное чтение запроса. <a href="https://myat.studio/masters/dmitry/" target="_blank" rel="noopener">О&nbsp;мастере</a></p><div class="pbar"><i class="grow" style="--p:4500"></i></div><div class="pr num">4 500&nbsp;₽</div><a class="btn btn--sm" href="https://n1480140.yclients.ru/company/1327757/personal/select-time?o=m4934265" target="_blank" rel="noopener">Записаться</a></li>
+        <li class="rv" data-price="3500" data-since="2016" data-reviews="11" data-o="2"><img src="https://myat.studio/wa-data/public/site/themes/myatstudio/masters/4685346.jpg" alt="Алексей Лопатин" width="64" height="64" loading="lazy"><div><h3>Алексей</h3><div class="mono meta">с 2016 · 11 отзывов</div></div><p>Реабилитолог по образованию. Собирает микс техник под задачу, работает глубоко, в&nbsp;том числе со спортивными травмами. <a href="https://myat.studio/masters/" target="_blank" rel="noopener">О&nbsp;мастере</a></p><div class="pbar"><i class="grow" style="--p:3500"></i></div><div class="pr num">3 500&nbsp;₽</div><a class="btn btn--sm" href="https://n1480140.yclients.ru/company/1327757/personal/select-time?o=m4685346" target="_blank" rel="noopener">Записаться</a></li>
+        <li class="rv" data-price="4500" data-since="2019" data-reviews="30" data-o="3"><img src="https://myat.studio/wa-data/public/site/themes/myatstudio/masters/4492536.jpg" alt="Ангелина Морозова" width="64" height="64" loading="lazy"><div><h3>Ангелина</h3><div class="mono meta">с 2019 · 30 отзывов</div></div><p>Соединяет несколько техник в&nbsp;одном сеансе. Прорабатывает триггерные точки без перегрузки для нервной системы. <a href="https://myat.studio/masters/angelina-morozova/" target="_blank" rel="noopener">О&nbsp;мастере</a></p><div class="pbar"><i class="grow" style="--p:4500"></i></div><div class="pr num">4 500&nbsp;₽</div><a class="btn btn--sm" href="https://n1480140.yclients.ru/company/1327757/personal/select-time?o=m4492536" target="_blank" rel="noopener">Записаться</a></li>
+        <li class="rv" data-price="3200" data-since="2023" data-reviews="3" data-o="4"><img src="https://myat.studio/wa-data/public/site/themes/myatstudio/masters/5610627.jpg" alt="Ирина Куженкова" width="64" height="64" loading="lazy"><div><h3>Ирина</h3><div class="mono meta">с 2023 · 3 отзыва</div></div><p>Выпускница Сеченовского университета. Ведёт сеанс от мягкого расслабляющего до глубокого силового разминания. <a href="https://myat.studio/masters/" target="_blank" rel="noopener">О&nbsp;мастере</a></p><div class="pbar"><i class="grow" style="--p:3200"></i></div><div class="pr num">3 200&nbsp;₽</div><a class="btn btn--sm" href="https://n1480140.yclients.ru/company/1327757/personal/select-time?o=m5610627" target="_blank" rel="noopener">Записаться</a></li>
+        <li class="rv" data-price="4250" data-since="2025" data-reviews="20" data-o="5"><img src="https://myat.studio/wa-data/public/site/themes/myatstudio/masters/4958182.jpg" alt="Наталья" width="64" height="64" loading="lazy"><div><h3>Наталья</h3><div class="mono meta">с 2025 · 20 отзывов</div></div><p>Мастер спорта по лыжным гонкам, персональный тренер. Баланс между спокойным расслаблением и&nbsp;глубокой проработкой. <a href="https://myat.studio/masters/natalia/" target="_blank" rel="noopener">О&nbsp;мастере</a></p><div class="pbar"><i class="grow" style="--p:4250"></i></div><div class="pr num">4 250&nbsp;₽</div><a class="btn btn--sm" href="https://n1480140.yclients.ru/company/1327757/personal/select-time?o=m4958182" target="_blank" rel="noopener">Записаться</a></li>
+      </ul>
+      <p class="note">Цена указана за массаж тела, 60 минут. Цены на другие услуги и&nbsp;90 минут видно при записи.</p>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="sh rv">
+        <div><span class="mono">03 · как работаем</span><h2>Без спешки и&nbsp;без скриптов</h2></div>
+        <p>Качественный массаж с&nbsp;человеческим подходом.</p>
+      </div>
+      <div class="why">
+        <div class="rv"><span class="mono">01</span><h3>Сначала разговор, потом работа</h3><p>Мастер спрашивает, что беспокоит, и&nbsp;согласует с&nbsp;вами интенсивность. Шаблонов нет&nbsp;— работа строится под ваше тело.</p></div>
+        <div class="rv"><span class="mono">02</span><h3>Время сеанса&nbsp;— целиком ваше</h3><p>60 или 90 минут внимательной работы. Мастер не торопится и&nbsp;не отвлекается.</p></div>
+        <div class="rv"><span class="mono">03</span><h3>Мастера учатся постоянно</h3><p>Анатомия, техники, внутреннее обучение «Мять». В&nbsp;команде&nbsp;— мастера с&nbsp;практикой с&nbsp;2012 года.</p></div>
+        <div class="rv"><span class="mono">04</span><h3>Честно и&nbsp;конфиденциально</h3><p>Не ставим диагнозы и&nbsp;не обещаем лечения: если задача врачебная, скажем прямо. Сказанное в&nbsp;кабинете остаётся в&nbsp;кабинете.</p></div>
+      </div>
+      <div class="board rv">
+        <div><b>8/10</b><span>клиентов возвращаются снова</span></div>
+        <div><b>6</b><span>мастеров в&nbsp;студии</span></div>
+        <div><b>112</b><span>отзывов о&nbsp;мастерах студии</span></div>
+        <div><b>2012</b><span>с&nbsp;этого года практика мастеров студии</span></div>
+        <blockquote><img src="https://myat.studio/wa-data/public/site/themes/myatstudio/masters/3942824.jpg" alt="" width="48" height="48" loading="lazy"><div><p>«Больше пятнадцати лет я&nbsp;учусь слушать тело. И&nbsp;оно до сих пор каждый раз меня удивляет».</p><cite>Юрий Ефимов, основатель «Мять», больше 15&nbsp;лет в&nbsp;массаже и&nbsp;реабилитации</cite></div></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="place" id="place">
+    <div class="wrap place-g">
+      <div class="rv">
+        <span class="mono">04 · студия</span>
+        <h2>Ботанический сад</h2>
+        <dl class="pf">
+          <div><dt class="mono">Адрес</dt><dd>Сельскохозяйственная, 35<small>ЖК Green Park</small></dd></div>
+          <div><dt class="mono">Вход</dt><dd>Через барбершоп ANTIHERO<small>первый этаж</small></dd></div>
+          <div><dt class="mono">От метро</dt><dd>Ботанический сад<div class="walk"><i></i><small class="num">16 мин пешком</small></div></dd></div>
+          <div><dt class="mono">Часы</dt><dd>Ежедневно 10:00–22:00<small>Приглушённый свет. Тихая музыка. Всё для спокойного сеанса.</small></dd></div>
+        </dl>
+        <div class="cta">
+          <a class="btn" href="https://yandex.ru/maps/-/CXurbIIt" target="_blank" rel="noopener">Маршрут <svg class="arr"><use href="#out"/></svg></a>
+          <a class="btn btn--line num" href="tel:+79854119172">+7 985 411 91 72</a>
+          <a class="btn btn--line" href="https://t.me/myatstudios" target="_blank" rel="noopener">Telegram</a>
+          <a class="btn btn--line" href="https://wa.me/79104851085" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn btn--line" href="https://max.ru/" target="_blank" rel="noopener">MAX</a>
+        </div>
+      </div>
+      <figure class="room rv">
+        <img src="https://myat.studio/wa-data/public/site/themes/myatstudio/studios/room-02.jpg" alt="Массажный кабинет студии «Мять» на Ботаническом саду" width="230" height="409" loading="lazy">
+        <figcaption>Кабинет студии</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="gift" id="gift">
+    <div class="wrap">
+      <div class="gift-g rv">
+        <img src="https://myat.studio/wa-data/public/site/themes/myatstudio/services/certificate-light.jpg" alt="Подарочный сертификат «Мять»" width="150" height="170" loading="lazy">
+        <div>
+          <span class="mono">05 · подарок</span>
+          <h2>Подарочный сертификат</h2>
+          <p>Бессрочный, во всех студиях, на любые услуги. Приходит сразу после оплаты.</p>
+          <ul class="sums"><li>4 000&nbsp;₽</li><li>5 000&nbsp;₽</li><li>10 000&nbsp;₽</li><li>20 000&nbsp;₽</li><li>другая сумма</li></ul>
+        </div>
+        <a class="btn" href="https://myatbrands.ru/certificates/" target="_blank" rel="noopener">Оформить сертификат <svg class="arr"><use href="#arr"/></svg></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div><img src="https://myat.studio/wa-data/public/site/themes/myatstudio/logo-black.svg" alt="МЯТЬ" width="87" height="24"><div>Тело. Тишина. Контроль.</div></div>
+    <ul><li><a href="https://myat.studio/faq/">Вопросы и ответы</a></li><li><a href="https://myat.studio/protivopokazaniya/">Противопоказания</a></li><li><a href="https://myat.studio/reviews/">Отзывы</a></li></ul>
+    <ul><li><a href="https://myat.studio/studios/">Другие студии</a></li><li><a href="https://myatbrands.ru/corporate/">Партнёрам</a></li><li><a href="https://myatbrands.ru/franchise/">Франшиза</a></li><li><a href="https://myat.studio/rabota/">Вакансии</a></li></ul>
+    <ul><li><a href="tel:+79854119172">+7 985 411 91 72</a></li><li><a href="mailto:tihlan@yandex.ru">tihlan@yandex.ru</a></li><li><a href="https://t.me/myatstudio">Канал в Telegram</a></li><li><a href="https://vk.com/myat.studio">ВКонтакте</a></li></ul>
+    <div class="legal"><span>© 2026 «Мять»</span><span>ИП Ефимов Юрий Алексеевич, ИНН 026614088829, ОГРНИП 316028000128111</span><a href="https://myat.studio/privacy/">Политика конфиденциальности</a><a href="https://myat.studio/offer/">Оферта</a><a href="https://myat.studio/vozvrat/">Возврат</a></div>
+  </div>
+</footer>
+
+<div class="bar">
+  <a class="btn" href="https://n1480140.yclients.ru/company/1327757/personal/menu?o=" target="_blank" rel="noopener">Записаться · от 2 700&nbsp;₽</a>
+  <a class="btn btn--line call" href="tel:+79854119172" aria-label="Позвонить"><svg><use href="#ph"/></svg></a>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+(() => {
+  const OPEN = 600, CLOSE = 1320, SPAN = CLOSE - OPEN; // 10:00–22:00 в минутах
+  const fmt = (m) => `${String(Math.floor(m / 60)).padStart(2, '0')}:${String(m % 60).padStart(2, '0')}`;
+  const msk = () => {
+    const p = Object.fromEntries(new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Moscow', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date()).map((x) => [x.type, x.value]));
+    return { t: (+p.hour % 24) * 60 + +p.minute, wd: p.weekday };
+  };
+  const PICK = {
+    30: ['Массаж спины, 30 минут', '2 500 ₽'],
+    60: ['Массаж тела, 60 минут', '3 200–4 500 ₽'],
+    90: ['Массаж тела, 90 минут', '4 800–7 000 ₽'],
+  };
+  const nb = (s) => s.replace(/ ₽/g, ' ₽').replace(/(\d) (\d)/g, '$1 $2');
+  const rul = document.getElementById('rul'), sess = document.getElementById('sess'), sessL = document.getElementById('sess-l');
+  const nowEl = document.getElementById('now'), nowL = document.getElementById('now-l'), status = document.getElementById('status');
+  const pickT = document.getElementById('pick-t'), pickP = document.getElementById('pick-p'), pickN = document.getElementById('pick-n');
+  let dur = 60, start = 1080, touched = false;
+
+  const draw = () => {
+    start = Math.max(OPEN, Math.min(CLOSE - dur, start));
+    sess.style.left = `${(start - OPEN) / SPAN * 100}%`;
+    sess.style.width = `${dur / SPAN * 100}%`;
+    sessL.textContent = `${fmt(start)}–${fmt(start + dur)}`;
+    rul.setAttribute('aria-valuenow', start);
+    rul.setAttribute('aria-valuemax', CLOSE - dur);
+    rul.setAttribute('aria-valuetext', sessL.textContent);
+    pickT.textContent = PICK[dur][0];
+    pickP.textContent = nb(PICK[dur][1]);
+    pickN.textContent = start < 840 && dur >= 60
+      ? 'С 10:00 до 14:00 по будням действует «Утром дешевле»: массаж тела 3 250–4 250 ₽. Свободные окна покажет онлайн-запись.'
+      : 'Передвиньте сеанс по шкале, чтобы прикинуть время. Это примерка: свободные окна покажет онлайн-запись.';
+  };
+  const tick = () => {
+    const { t } = msk();
+    const open = t >= OPEN && t < CLOSE;
+    status.classList.toggle('closed', !open);
+    status.lastElementChild.textContent = open
+      ? `Сейчас ${fmt(t)} · открыто ещё ${Math.floor((CLOSE - t) / 60)} ч ${(CLOSE - t) % 60} мин`
+      : `Сейчас ${fmt(t)} · закрыто, откроемся в 10:00`;
+    nowEl.hidden = !open;
+    if (open) { nowEl.style.left = `${(t - OPEN) / SPAN * 100}%`; nowL.textContent = fmt(t); }
+    if (!touched) { // пока человек не трогал шкалу, сеанс стоит на ближайшем получасе
+      const next = Math.ceil((t + 30) / 30) * 30;
+      start = open && next + dur <= CLOSE ? next : OPEN;
+      draw();
+    }
+  };
+  document.querySelectorAll('.durs button').forEach((b) => b.addEventListener('click', () => {
+    dur = +b.dataset.d;
+    document.querySelectorAll('.durs button').forEach((x) => x.setAttribute('aria-pressed', x === b));
+    draw();
+  }));
+  const place = (e) => {
+    const r = rul.getBoundingClientRect();
+    start = Math.round((OPEN + (e.clientX - r.left) / r.width * SPAN - dur / 2) / 30) * 30;
+    touched = true; draw();
+  };
+  rul.addEventListener('pointerdown', (e) => { rul.setPointerCapture(e.pointerId); place(e); });
+  rul.addEventListener('pointermove', (e) => { if (rul.hasPointerCapture(e.pointerId)) place(e); });
+  rul.addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    e.preventDefault(); start += e.key === 'ArrowLeft' ? -30 : 30; touched = true; draw();
+  });
+  tick(); setInterval(tick, 20000);
+
+  // порядок мастеров
+  const ml = document.getElementById('ml');
+  const order = { since: (a, b) => a.dataset.since - b.dataset.since || a.dataset.o - b.dataset.o, price: (a, b) => a.dataset.price - b.dataset.price || a.dataset.since - b.dataset.since, reviews: (a, b) => b.dataset.reviews - a.dataset.reviews };
+  document.querySelectorAll('.sort button').forEach((b) => b.addEventListener('click', () => {
+    document.querySelectorAll('.sort button').forEach((x) => x.setAttribute('aria-pressed', x === b));
+    [...ml.children].sort(order[b.dataset.s]).forEach((li) => ml.appendChild(li));
+  }));
+
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.rv').forEach((n) => io.observe(n));
+})();
+</script>
+</body>
+</html>
