@@ -22,6 +22,15 @@ p{margin:0 0 14px}.lead{max-width:44em;color:var(--ink-2);font-size:clamp(17px,1
 a{color:inherit}
 section{padding:clamp(32px,5vw,64px) 0;border-top:1px solid var(--line)}
 img{display:block;max-width:100%;border-radius:10px;border:1px solid var(--line)}
+.hub{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:12px;margin-top:28px}
+.hub a{display:flex;flex-direction:column;gap:6px;padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:var(--card);text-decoration:none;transition:border-color .2s,transform .2s}
+.hub a:hover{border-color:var(--ink);transform:translateY(-2px)}
+.hub b{font-weight:500;font-size:19px;line-height:1.25}
+.hub a>span:last-child{font-size:14.5px;color:var(--ink-2)}
+.hub .hub-main{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.hub .hub-main .k,.hub .hub-main>span:last-child{color:rgba(245,244,240,.72)}
+.hub .hub-main:hover{background:var(--acc);border-color:var(--acc)}
+html{scroll-behavior:smooth}
 .issues{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 44px;margin:0;padding:0;list-style:none;counter-reset:i}
 .issues li{counter-increment:i;padding-top:14px;border-top:1px solid var(--line)}
 .issues li::before{content:counter(i,decimal-leading-zero);display:block;margin-bottom:6px;font-weight:500;font-size:13px;color:var(--acc)}
@@ -41,7 +50,7 @@ figure{margin:0}figcaption{margin-top:8px;font-size:13.5px;line-height:1.45;colo
 .rec p{max-width:46em}
 ul.plain{margin:0 0 14px;padding-left:1.1em;color:var(--ink-2)}ul.plain li{margin-bottom:6px}
 footer{padding:28px 0 56px;font-size:14px;color:var(--ink-2)}
-@media (max-width:860px){.issues{grid-template-columns:1fr}.ev{grid-template-columns:1fr 1fr}.c{grid-template-columns:1fr 1fr}.c>div{grid-column:1/-1}}
+@media (max-width:860px){.hub{grid-template-columns:1fr}.issues{grid-template-columns:1fr}.ev{grid-template-columns:1fr 1fr}.c{grid-template-columns:1fr 1fr}.c>div{grid-column:1/-1}}
 </style>
 </head>
 <body>
@@ -49,9 +58,15 @@ footer{padding:28px 0 56px;font-size:14px;color:var(--ink-2)}
   <div class="k">myat.studio/?studio=botsad · разбор по принципам Awwwards · 10 ноября 2026</div>
   <h1>«Мять», Ботанический сад:<br>разбор и три концепта</h1>
   <p class="lead">Страница студии массажа в ЖК Green Park. Задача страницы одна: человек должен понять, какой массаж ему нужен, к кому идти и сколько это стоит, — и записаться. Запись уходит во внешний виджет YCLIENTS, поэтому всё решается до клика.</p>
+  <nav class="hub" aria-label="Что смотреть">
+    <a class="hub-main" href="concepts/2-tri-slova.html"><span class="k">1 · выбранный вариант</span><b>Прототип «Тело. Тишина. Контроль.»</b><span>Полная страница студии — открыть и полистать →</span></a>
+    <a href="explain-2.html"><span class="k">2</span><b>Почему он так устроен</b><span>Решения, проверки и где он отступает от Awwwards →</span></a>
+    <a href="#now"><span class="k">3</span><b>Что не так на текущем сайте</b><span>Восемь проблем со скриншотами ↓</span></a>
+    <a href="#concepts"><span class="k">4</span><b>Все три концепта</b><span>Сравнение и два других варианта ↓</span></a>
+  </nav>
 </div></header>
 
-<section><div class="wrap">
+<section id="now"><div class="wrap">
   <h2>Что не так сейчас</h2>
   <ol class="issues">
     <li><h3>Цена разорвана на две части</h3><p>В услугах стоят вилки («3 200–4 500 ₽»), а точные цены мастеров — двумя экранами ниже. Причина вилки объяснена мелкой сноской. Главный вопрос посетителя приходится собирать самому.</p></li>
@@ -73,7 +88,7 @@ footer{padding:28px 0 56px;font-size:14px;color:var(--ink-2)}
   <p class="more">Целиком: <a href="screenshots/current/desktop-full.jpg">десктоп</a> · <a href="screenshots/current/mobile-full.jpg">телефон</a></p>
 </div></section>
 
-<section><div class="wrap">
+<section id="concepts"><div class="wrap">
   <article class="c">
     <div>
       <div class="n">Концепт 1</div>
