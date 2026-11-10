@@ -8,6 +8,7 @@
 <meta name="robots" content="noindex">
 <meta name="color-scheme" content="dark">
 <link rel="preload" as="font" type="font/woff2" href="../fonts/jost-cyrillic.woff2" crossorigin>
+<link rel="preload" as="image" href="../assets/photos/hero-1680.webp" imagesrcset="../assets/photos/hero-900.webp 900w, ../assets/photos/hero-1680.webp 1680w" imagesizes="100vw" fetchpriority="high">
 <style>
 /* ── шрифты и фото лежат в репозитории, внешних запросов нет ── */
 @font-face{font-family:"Jost";src:url(../fonts/jost-latin.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -372,7 +373,7 @@ details p{margin:0;padding:0 40px 22px 0;color:var(--tx-2);max-width:40em}
 
 <main id="top">
   <section class="hero" id="hero">
-    <img class="hero-img" src="../assets/photos/hero-1680.webp" srcset="../assets/photos/hero-900.webp 900w, ../assets/photos/hero-1680.webp 1680w" sizes="100vw" alt="" width="1680" height="1689" fetchpriority="high" decoding="async">
+    <img class="hero-img" src="../assets/photos/hero-1680.webp" srcset="../assets/photos/hero-900.webp 900w, ../assets/photos/hero-1680.webp 1680w" sizes="100vw" alt="" width="1680" height="1689" fetchpriority="high" decoding="sync">
     <div class="wrap">
       <p class="words" aria-label="Тело. Тишина. Контроль.">
         <a href="#telo"><span><b>Тело.</b></span><small>услуги и цены</small></a>
