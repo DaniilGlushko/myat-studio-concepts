@@ -108,7 +108,7 @@ section{padding:clamp(56px,8vw,120px) 0}
 .masters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
 .m{display:grid;grid-template-columns:96px minmax(0,1fr);grid-template-rows:1fr auto;gap:20px;padding:28px 28px 28px 0;border-bottom:1px solid var(--line)}
 .m:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid var(--line)}
-.m img{width:96px;height:96px;border-radius:22px;object-fit:cover;background:var(--paper-2)}
+.m img{width:96px;height:96px;border-radius:22px;object-fit:cover;background:var(--paper-2);filter:grayscale(1)}
 .m h3{margin:0;font:400 26px/1.1 var(--serif);letter-spacing:-.02em}
 .m .role{margin:4px 0 10px;font-size:13.5px;color:var(--ink-3)}
 .m .how{margin:0 0 14px;font-size:15px;line-height:1.5;color:var(--ink-2)}
@@ -127,7 +127,7 @@ section{padding:clamp(56px,8vw,120px) 0}
 .quote{margin:0;padding:24px;background:var(--card);border:1px solid var(--line);border-radius:24px}
 .quote p{margin:0 0 18px;font:400 italic 21px/1.35 var(--serif);letter-spacing:-.01em}
 .quote footer{display:flex;gap:14px;align-items:center;font-size:14px;color:var(--ink-2);line-height:1.35}
-.quote img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.quote img{width:56px;height:56px;border-radius:50%;object-fit:cover;filter:grayscale(1)}
 .quote b{display:block;color:var(--ink);font-weight:500;font-size:15px}
 .steps{list-style:none;margin:0;padding:0;counter-reset:s}
 .steps li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:8px;padding:26px 0;border-top:1px solid var(--line);counter-increment:s}
