@@ -2,149 +2,253 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Мять · Ботанический сад — разбор и три концепта</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Мять · концепт «Тело. Тишина. Контроль.» — прототип с объяснениями</title>
+<meta name="description" content="Прототип страницы студии массажа «Мять» на Ботаническом саду и объяснения к нему на одном экране.">
 <meta name="robots" content="noindex">
 <style>
 @font-face{font-family:"Onest";src:url(fonts/onest-latin.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0000-00FF,U+2000-206F,U+2212}
 @font-face{font-family:"Onest";src:url(fonts/onest-latin-ext.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0100-02BA,U+20A0-20AB,U+20AD-20C0}
 @font-face{font-family:"Onest";src:url(fonts/onest-cyrillic.woff2) format("woff2");font-weight:100 900;font-display:swap;unicode-range:U+0301,U+0400-045F,U+0490-0491,U+2116}
-:root{--bg:#F5F4F0;--card:#FDFDFB;--ink:#17191C;--ink-2:#50555B;--line:rgba(23,25,28,.14);--acc:#B4410F}
+:root{--bg:#F5F4F0;--card:#FDFDFB;--ink:#17191C;--ink-2:#50555B;--ink-3:#6E737A;--line:rgba(23,25,28,.14);--acc:#A8410F;--acc-soft:#F3E3D8;--stage:#DDDAD3;--bar:52px;--side:410px}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Onest",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,48px)}
-header{padding:clamp(36px,6vw,80px) 0 clamp(20px,3vw,36px)}
-.k{font:500 12.5px/1.3 "Onest";letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2)}
-h1{margin:12px 0 16px;font-weight:400;font-size:clamp(2.2rem,5.4vw,4.4rem);line-height:1;letter-spacing:-.04em}
-h2{margin:0 0 18px;font-weight:400;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1.05;letter-spacing:-.03em}
-h3{margin:0 0 6px;font-weight:500;font-size:19px;line-height:1.3}
-p{margin:0 0 14px}.lead{max-width:44em;color:var(--ink-2);font-size:clamp(17px,1.5vw,19px)}
+html,body{height:100%;margin:0}
+body{overflow:hidden;background:var(--bg);color:var(--ink);font:400 15.5px/1.5 "Onest",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-section{padding:clamp(32px,5vw,64px) 0;border-top:1px solid var(--line)}
-img{display:block;max-width:100%;border-radius:10px;border:1px solid var(--line)}
-.hub{display:grid;grid-template-columns:1.35fr 1fr 1fr 1fr;gap:12px;margin-top:28px}
-.hub a{display:flex;flex-direction:column;gap:6px;padding:18px 20px;border:1px solid var(--line);border-radius:12px;background:var(--card);text-decoration:none;transition:border-color .2s,transform .2s}
-.hub a:hover{border-color:var(--ink);transform:translateY(-2px)}
-.hub b{font-weight:500;font-size:19px;line-height:1.25}
-.hub a>span:last-child{font-size:14.5px;color:var(--ink-2)}
-.hub .hub-main{background:var(--ink);border-color:var(--ink);color:var(--bg)}
-.hub .hub-main .k,.hub .hub-main>span:last-child{color:rgba(245,244,240,.72)}
-.hub .hub-main:hover{background:var(--acc);border-color:var(--acc)}
-html{scroll-behavior:smooth}
-.issues{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 44px;margin:0;padding:0;list-style:none;counter-reset:i}
-.issues li{counter-increment:i;padding-top:14px;border-top:1px solid var(--line)}
-.issues li::before{content:counter(i,decimal-leading-zero);display:block;margin-bottom:6px;font-weight:500;font-size:13px;color:var(--acc)}
-.issues p{margin:0;color:var(--ink-2);font-size:15.5px;line-height:1.55}
-.ev{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1.5fr) minmax(0,.62fr) minmax(0,.62fr);gap:16px;align-items:start;margin-top:32px}
-figure{margin:0}figcaption{margin-top:8px;font-size:13.5px;line-height:1.45;color:var(--ink-2)}
-.c{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.5fr) minmax(0,.42fr);gap:clamp(18px,3vw,40px);align-items:start}
-.c+.c{margin-top:clamp(36px,5vw,64px);padding-top:clamp(36px,5vw,64px);border-top:1px solid var(--line)}
-.c .n{font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
-.c h2{margin:8px 0 12px}
-.c p{color:var(--ink-2);font-size:16px}
-.c p b{color:var(--ink);font-weight:500}
-.btn{display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:0 20px;border-radius:8px;background:var(--ink);color:var(--bg);text-decoration:none;font-weight:500;font-size:15.5px}
-.btn:hover{background:var(--acc)}
-.more{display:block;margin-top:12px;font-size:14px;color:var(--ink-2)}
-.rec{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:clamp(20px,3vw,36px)}
-.rec p{max-width:46em}
-ul.plain{margin:0 0 14px;padding-left:1.1em;color:var(--ink-2)}ul.plain li{margin-bottom:6px}
-footer{padding:28px 0 56px;font-size:14px;color:var(--ink-2)}
-@media (max-width:860px){.hub{grid-template-columns:1fr}.issues{grid-template-columns:1fr}.ev{grid-template-columns:1fr 1fr}.c{grid-template-columns:1fr 1fr}.c>div{grid-column:1/-1}}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px;border-radius:6px}
+
+/* верхняя полоса */
+.bar{position:fixed;inset:0 0 auto 0;height:var(--bar);z-index:10;display:flex;align-items:center;gap:10px;padding:0 14px;background:var(--card);border-bottom:1px solid var(--line)}
+.bar h1{margin:0 6px 0 0;font-weight:500;font-size:15.5px;white-space:nowrap}
+.bar h1 span{color:var(--ink-3);font-weight:400}
+.seg{display:flex;padding:3px;border-radius:9px;background:rgba(23,25,28,.07)}
+.seg button{min-height:32px;padding:0 13px;border:0;border-radius:7px;background:transparent;font-size:14px;white-space:nowrap}
+.seg button[aria-pressed=true]{background:var(--card);box-shadow:0 1px 2px rgba(0,0,0,.14);font-weight:500}
+.tog{min-height:38px;padding:0 13px;border:1px solid var(--line);border-radius:9px;background:transparent;font-size:14px;white-space:nowrap}
+.tog[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.bar .sp{flex:1}
+.bar .lnk{font-size:14px;color:var(--ink-2);white-space:nowrap;text-underline-offset:3px;padding:8px 4px}
+.bar .lnk:hover{color:var(--ink)}
+.tabs{display:none}
+
+/* сцена: слева прототип, справа объяснения */
+.stage{position:fixed;inset:var(--bar) 0 0 0;display:grid;grid-template-columns:minmax(0,1fr) var(--side)}
+body.notes-off .stage{grid-template-columns:minmax(0,1fr)}
+body.notes-off .notes{display:none}
+.view{position:relative;overflow:hidden;background:var(--stage)}
+.fw{position:absolute;left:0;top:0;transform-origin:0 0;background:#14110F;overflow:hidden}
+.fw iframe{display:block;width:100%;height:100%;border:0}
+body[data-device=phone] .fw{border-radius:30px;box-shadow:0 0 0 9px #1c1c1e,0 24px 60px -20px rgba(0,0,0,.5)}
+.hint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);padding:7px 12px;border-radius:99px;background:rgba(23,25,28,.82);color:#fff;font-size:13px;white-space:nowrap;pointer-events:none;opacity:0;transition:opacity .4s}
+.hint.on{opacity:1}
+
+.notes{overflow:auto;overscroll-behavior:contain;border-left:1px solid var(--line);background:var(--bg);padding:18px 16px 40px;scroll-behavior:smooth}
+.notes h2{margin:0 0 6px;font-weight:500;font-size:21px;line-height:1.2;letter-spacing:-.02em}
+.notes>p{margin:0 0 16px;color:var(--ink-2);font-size:14.5px}
+.grp{margin:26px 0 10px;font-weight:500;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.n{display:block;width:100%;text-align:left;margin:0 0 8px;padding:14px 14px 13px;border:1px solid var(--line);border-radius:12px;background:var(--card);transition:border-color .2s,box-shadow .2s,background .2s}
+button.n:hover{border-color:var(--ink)}
+.n.on{border-color:var(--acc);box-shadow:inset 3px 0 0 var(--acc);background:#fff}
+.n .h{display:flex;gap:10px;align-items:baseline;margin-bottom:5px}
+.n .h i{flex:none;min-width:22px;font-style:normal;font-weight:500;font-size:12.5px;color:var(--acc);font-variant-numeric:tabular-nums}
+.n .h b{font-weight:500;font-size:16px;line-height:1.3}
+.n .t{display:block;margin-left:32px;color:var(--ink-2);font-size:14.5px;line-height:1.5}
+.n .m{display:block;margin:8px 0 0 32px;font-size:13px;line-height:1.45;color:var(--ink-3)}
+.n .m em{font-style:normal;color:var(--ink);font-weight:500}
+.n .go{display:inline-block;margin:9px 0 0 32px;font-size:13px;font-weight:500;color:var(--acc)}
+ul.l{margin:0;padding:0;list-style:none}
+ul.l li{position:relative;padding:10px 0 10px 22px;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+ul.l li::before{content:"—";position:absolute;left:0;color:var(--acc)}
+ul.l li b{color:var(--ink);font-weight:500}
+.ans{margin:0 0 6px;padding:14px;border-radius:12px;background:var(--acc-soft);font-size:14.5px;line-height:1.5}
+.ans b{font-weight:500}
+.more{margin-top:22px;font-size:14px;color:var(--ink-2)}
+
+@media (max-width:980px){
+  :root{--side:340px}
+  .bar .lnk.opt{display:none}
+}
+@media (max-width:760px){
+  .bar{gap:8px;padding:0 10px}
+  .bar h1 span,.bar .seg.dev,.bar .tog,.bar .lnk{display:none}
+  .tabs{display:flex;margin-left:auto}
+  .stage{grid-template-columns:minmax(0,1fr)}
+  .notes{position:fixed;inset:var(--bar) 0 0 0;border-left:0;z-index:5;display:none;padding-bottom:calc(40px + env(safe-area-inset-bottom))}
+  body[data-tab=notes] .notes{display:block}
+  body.notes-off .notes{display:none}
+  body[data-tab=notes].notes-off .notes{display:block}
+  .hint{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}.notes{scroll-behavior:auto}}
 </style>
 </head>
-<body>
-<header><div class="wrap">
-  <div class="k">myat.studio/?studio=botsad · разбор по принципам Awwwards · 10 ноября 2026</div>
-  <h1>«Мять», Ботанический сад:<br>разбор и три концепта</h1>
-  <p class="lead">Страница студии массажа в ЖК Green Park. Задача страницы одна: человек должен понять, какой массаж ему нужен, к кому идти и сколько это стоит, — и записаться. Запись уходит во внешний виджет YCLIENTS, поэтому всё решается до клика.</p>
-  <nav class="hub" aria-label="Что смотреть">
-    <a class="hub-main" href="concepts/2-tri-slova.html"><span class="k">1 · выбранный вариант</span><b>Прототип «Тело. Тишина. Контроль.»</b><span>Полная страница студии — открыть и полистать →</span></a>
-    <a href="explain-2.html"><span class="k">2</span><b>Почему он так устроен</b><span>Решения, проверки и где он отступает от Awwwards →</span></a>
-    <a href="#now"><span class="k">3</span><b>Что не так на текущем сайте</b><span>Восемь проблем со скриншотами ↓</span></a>
-    <a href="#concepts"><span class="k">4</span><b>Все три концепта</b><span>Сравнение и два других варианта ↓</span></a>
-  </nav>
-</div></header>
+<body data-device="desktop" data-tab="proto">
 
-<section id="now"><div class="wrap">
-  <h2>Что не так сейчас</h2>
-  <ol class="issues">
-    <li><h3>Цена разорвана на две части</h3><p>В услугах стоят вилки («3 200–4 500 ₽»), а точные цены мастеров — двумя экранами ниже. Причина вилки объяснена мелкой сноской. Главный вопрос посетителя приходится собирать самому.</p></li>
-    <li><h3>Первый экран почти пустой</h3><p>На телефоне верхняя половина экрана — чёрное поле. Заголовок «Массаж с вниманием к телу» подошёл бы любой студии; собственный слоган «Тело. Тишина. Контроль.» спрятан в подвале серым мелким шрифтом.</p></li>
-    <li><h3>Плоская типографика</h3><p>Один шрифт, одно начертание (400) от заголовка до подписи. На телефоне шкала 36 → 28 → 22 → 18 px, а 72 из 78 текстовых блоков набраны 15 px и мельче, половина — серым.</p></li>
-    <li><h3>Один ритм на всю страницу</h3><p>Семь секций подряд устроены одинаково: заголовок слева, сетка карточек, линия. Пять услуг встают как 3 + 2, шесть мастеров как 4 + 2 — с пустыми «хвостами». Чистый чёрный (#000) без единой смены фона на 5 500 px.</p></li>
-    <li><h3>Фото не про эту студию</h3><p>Услуги иллюстрированы глянцевыми лицами моделей; фотографии самой студии на странице студии нет. Картинки услуг 1680 px грузятся в слот 370 px. Портреты мастеров сняты по-разному и обрезаны под высокий формат.</p></li>
-    <li><h3>Телефон: длинно и мелко</h3><p>Страница — 9 100 px, около 11 экранов. Прилипающей кнопки записи нет (в шапке только трубка и меню). 41 ссылка и кнопка ниже 40 px, «Записаться» у мастера — строка высотой 18 px.</p></li>
-    <li><h3>Не хватает сведений, чтобы дойти</h3><p>«Вход через барбершоп ANTIHERO, первый этаж» и «16 минут от метро» написаны только на странице «Студии». В контактах нет ни карты, ни пометки «сейчас открыто».</p></li>
-    <li><h3>Доверие названо, но не показано</h3><p>«112 отзывов» — цифра без единого отзыва на сайте: страница отзывов ведёт наружу. Описания мастеров (образование, подход) тоже остались на отдельной странице.</p></li>
-  </ol>
-  <p style="margin-top:24px;color:var(--ink-2);font-size:15.5px">Что хорошо и стоит сохранить: скорость (≈1,7 МБ, загрузка около 2 с), честный тон текстов, точные цены мастеров, выбор студии, хороший кадр спины на первом экране.</p>
-  <div class="ev">
-    <figure><a href="screenshots/current/ev-services.jpg"><img src="screenshots/current/ev-services.jpg" alt="" loading="lazy"></a><figcaption>Услуги: вилки цен и модельные фото</figcaption></figure>
-    <figure><a href="screenshots/current/ev-masters.jpg"><img src="screenshots/current/ev-masters.jpg" alt="" loading="lazy"></a><figcaption>Мастера: 4 + 2, мелкие ссылки записи</figcaption></figure>
-    <figure><a href="screenshots/current/mobile-top.jpg"><img src="screenshots/current/mobile-top.jpg" alt="" loading="lazy"></a><figcaption>Телефон, первый экран</figcaption></figure>
-    <figure><a href="screenshots/current/ev-mobile-services.jpg"><img src="screenshots/current/ev-mobile-services.jpg" alt="" loading="lazy"></a><figcaption>Телефон, услуги</figcaption></figure>
+<header class="bar">
+  <h1>Мять <span>· концепт «Тело. Тишина. Контроль.»</span></h1>
+  <div class="seg dev" role="group" aria-label="Ширина просмотра">
+    <button type="button" data-device="desktop" aria-pressed="true">Десктоп</button>
+    <button type="button" data-device="phone" aria-pressed="false">Телефон</button>
   </div>
-  <p class="more">Целиком: <a href="screenshots/current/desktop-full.jpg">десктоп</a> · <a href="screenshots/current/mobile-full.jpg">телефон</a></p>
-</div></section>
+  <button type="button" class="tog" id="tog" aria-pressed="true">Объяснения</button>
+  <span class="sp"></span>
+  <a class="lnk" href="concepts/2-tri-slova.html" target="_blank" rel="noopener">Без рамки ↗</a>
+  <a class="lnk opt" href="razbor.html">Разбор сайта и другие концепты</a>
+  <div class="seg tabs" role="group" aria-label="Что показать">
+    <button type="button" data-tab="proto" aria-pressed="true">Прототип</button>
+    <button type="button" data-tab="notes" aria-pressed="false">Объяснения</button>
+  </div>
+</header>
 
-<section id="concepts"><div class="wrap">
-  <article class="c">
-    <div>
-      <div class="n">Концепт 1</div>
-      <h2>Сначала разговор</h2>
-      <p><b>Идея.</b> Первый принцип студии — «сначала разговор, потом работа» — становится интерфейсом. Страница начинается с вопроса мастера «Что беспокоит?»; ответ сразу показывает подходящий массаж, длительность и цену. Ниже — мастера с точной ценой каждого, без вилок.</p>
-      <p><b>Кому подойдёт.</b> Новым клиентам, которые не знают, какой массаж выбрать. Лучше всего решает главную проблему страницы.</p>
-      <a class="btn" href="concepts/1-razgovor.html">Открыть прототип →</a>
-      <span class="more">Целиком: <a href="screenshots/concept-1/desktop-full.jpg">десктоп</a> · <a href="screenshots/concept-1/mobile-full.jpg">телефон</a></span>
-    </div>
-    <a href="concepts/1-razgovor.html"><img src="screenshots/concept-1/desktop-top.jpg" alt="Концепт 1, десктоп" loading="lazy"></a>
-    <a href="concepts/1-razgovor.html"><img src="screenshots/concept-1/mobile-top.jpg" alt="Концепт 1, телефон" loading="lazy"></a>
-  </article>
-  <article class="c">
-    <div>
-      <div class="n">Концепт 2</div>
-      <h2>Тело. Тишина. Контроль.</h2>
-      <p><b>Идея.</b> Слоган из подвала становится каркасом: три слова — три главы и они же навигация. «Тело» — услуги списком, «Тишина» — студия и как дойти, «Контроль» — выбор мастера и его цена. Тёмная, но тёплая: цвет взят из кадра на первом экране.</p>
-      <p><b>Кому подойдёт.</b> Если важно сохранить нынешний тёмный образ бренда и просто сделать его сильнее. Самый «имиджевый» вариант.</p>
-      <p><b>Выбран, доведён до подробной версии.</b> Полная страница с настоящим содержанием: услуги с точной ценой каждого мастера, как дойти, мастера с сортировкой, вопросы, сертификат, запись. Фото лежат в репозитории.</p>
-      <a class="btn" href="concepts/2-tri-slova.html">Открыть прототип →</a>
-      <span class="more"><a href="explain-2.html"><b>Почему так устроено и где отступает от Awwwards →</b></a></span>
-      <span class="more">Целиком: <a href="screenshots/concept-2/desktop-full.jpg">десктоп</a> · <a href="screenshots/concept-2/mobile-full.jpg">телефон</a></span>
-    </div>
-    <a href="concepts/2-tri-slova.html"><img src="screenshots/concept-2/desktop-top.jpg" alt="Концепт 2, десктоп" loading="lazy"></a>
-    <a href="concepts/2-tri-slova.html"><img src="screenshots/concept-2/mobile-top.jpg" alt="Концепт 2, телефон" loading="lazy"></a>
-  </article>
-  <article class="c">
-    <div>
-      <div class="n">Концепт 3</div>
-      <h2>По минутам</h2>
-      <p><b>Идея.</b> Студия продаёт минуты внимания, поэтому всё измерено временем. На первом экране — шкала дня 10:00–22:00 с живым «сейчас», окном «утром дешевле» и сеансом, который можно подвигать. Услуги — прейскурант с полосками длительности, мастера — список с сортировкой по опыту, цене и отзывам.</p>
-      <p><b>Кому подойдёт.</b> Постоянным клиентам и тем, кто сравнивает цены: кратчайший путь к «сколько, когда, к кому».</p>
-      <a class="btn" href="concepts/3-minuty.html">Открыть прототип →</a>
-      <span class="more">Целиком: <a href="screenshots/concept-3/desktop-full.jpg">десктоп</a> · <a href="screenshots/concept-3/mobile-full.jpg">телефон</a></span>
-    </div>
-    <a href="concepts/3-minuty.html"><img src="screenshots/concept-3/desktop-top.jpg" alt="Концепт 3, десктоп" loading="lazy"></a>
-    <a href="concepts/3-minuty.html"><img src="screenshots/concept-3/mobile-top.jpg" alt="Концепт 3, телефон" loading="lazy"></a>
-  </article>
-</div></section>
+<div class="stage">
+  <main class="view" id="view">
+    <div class="fw" id="fw"><iframe id="proto" src="concepts/2-tri-slova.html" title="Прототип страницы студии «Мять» на Ботаническом саду"></iframe></div>
+    <div class="hint" id="hint">Нажмите на пункт справа — прототип прокрутится к этому месту</div>
+  </main>
 
-<section><div class="wrap">
-  <div class="rec">
-    <div class="k">Рекомендация до выбора · 10 ноября выбран концепт 2, он доведён до подробной версии</div>
-    <h2 style="margin-top:10px">Брать концепт 1 и добавить в него две находки из третьего</h2>
-    <p>«Сначала разговор» — единственный вариант, где идея взята из самого продукта и одновременно чинит главный сбой: человек за один экран получает услугу и цену, а в следующем — мастера с точной суммой. Он светлый и тёплый, заметно отличается от типовых тёмных сайтов массажа.</p>
-    <p>Из концепта 3 стоит перенести сортировку мастеров (опытнее / дешевле / больше отзывов) и пометку «сейчас открыто». Если владельцу принципиален тёмный образ — тогда концепт 2, он ближе всего к нынешнему сайту.</p>
-    <h3 style="margin-top:22px">Что нужно от студии, чтобы довести любой вариант</h3>
-    <ul class="plain">
-      <li>Фотографии самой студии: вход, зона ожидания, кабинет. Сейчас на сайте есть только вертикальные кадры с телефона 720×1280 — в прототипах они показаны маленькими, крупнее не выдержат.</li>
-      <li>Два-три настоящих отзыва с разрешением на публикацию — в прототипах отзывов нет, выдумывать их нельзя.</li>
-      <li>Точные цены мастеров на 90 минут и на остальные услуги — на сайте они есть только вилкой.</li>
-      <li>Ссылки YCLIENTS на каждую услугу: известна только одна (массаж тела), остальные кнопки пока ведут в общее меню записи.</li>
+  <aside class="notes" id="notes" aria-label="Объяснения к прототипу">
+    <h2>Почему страница устроена так</h2>
+    <p>Слева — живой прототип, его можно листать и нажимать. Пункты ниже идут в порядке страницы: нажмите — прототип прокрутится к этому месту.</p>
+
+    <div class="grp">Решения по порядку страницы</div>
+    <button type="button" class="n" data-t="#hero"><span class="h"><i>01</i><b>Слоган стал каркасом</b></span><span class="t">«Тело. Тишина. Контроль.» вынесен из подвала на первый экран. Три слова — три главы страницы и они же навигация.</span><span class="m"><em>Закрывает:</em> пустой первый экран и спрятанный слоган. <em>Принцип:</em> сначала идея, взятая из самого продукта.</span><span class="go">Показать →</span></button>
+    <button type="button" class="n" data-t="#hero"><span class="h"><i>02</i><b>Два шрифта и тёплый тёмный</b></span><span class="t">Jost для слов и заголовков, Manrope для текста; размеры от 160 до 13,5 px. Фон не чистый чёрный, а тёплый #14110F, акцент один — песочный из кадра.</span><span class="m"><em>Закрывает:</em> плоскую типографику и сплошной #000. <em>Принцип:</em> типографика — 90% дизайна; никогда чистый чёрный.</span><span class="go">Показать →</span></button>
+    <button type="button" class="n" data-t="#offers"><span class="h"><i>03</i><b>Акции сразу под первым экраном</b></span><span class="t">«Первый визит» и «Утром дешевле» — две карточки с условием в одну строку, до списка услуг.</span><span class="m"><em>Закрывает:</em> часть проблемы с ценой — самую низкую сумму видно сразу. <em>Принцип:</em> удобство.</span><span class="go">Показать →</span></button>
+    <button type="button" class="n" data-t="#telo"><span class="h"><i>04</i><b>Услуги списком, а не карточками с фото</b></span><span class="t">Пять строк: название, одна фраза, длительность, цена, кнопка. На десктопе сбоку один кадр, на телефоне фото услуг нет.</span><span class="m"><em>Закрывает:</em> модельные лица вместо цен, сетку 3 + 2, длину на телефоне. <em>Принцип:</em> «убей любимчиков» — что не помогает выбрать, убрать.</span><span class="go">Показать →</span></button>
+    <button type="button" class="n" data-t="#ladder"><span class="h"><i>05</i><b>«Откуда вилка»: цена каждого мастера</b></span><span class="t">Под «Массажем тела» — точная сумма каждого мастера, от 3 200 до 4 500 ₽. Имя ведёт сразу в запись к нему.</span><span class="m"><em>Закрывает:</em> главную проблему — цена была разорвана на вилку и сноску. <em>Принцип:</em> ответ стоит там, где возникает вопрос.</span><span class="go">Показать →</span></button>
+    <button type="button" class="n" data-t="#tishina"><span class="h"><i>06</i><b>«Тишина»: слова студии и её настоящие фото</b></span><span class="t">Фразы взяты из ответов студии. Кабинет и зона отдыха показаны шириной 230 px: исходники с телефона, крупнее станут мыльными.</span><span class="m"><em>Закрывает:</em> на странице студии не было фото самой студии. <em>Принцип:</em> без стока; картинка не больше, чем позволяет её качество.</span><span class="go">Показать →</span></button>
+    <button type="button" class="n" data-t="#way"><span class="h"><i>07</i><b>Как дойти — по шагам</b></span><span class="t">Метро и 16 минут пешком, адрес и ориентир, вход через барбершоп ANTIHERO. Рядом часы с пометкой «сейчас открыто».</span><span class="m"><em>Закрывает:</em> этих сведений на странице не было. <em>Принцип:</em> дизайн под отрасль — для студии у дома это важнее анимации.</span><span class="go">Показать →</span></button>
+    <button type="button" class="n" data-t="#kontrol"><span class="h"><i>08</i><b>«Контроль»: четыре правила сеанса</b></span><span class="t">Разговор до работы; свет, музыка и давление меняются по просьбе; без терпения через боль; честно и конфиденциально.</span><span class="m"><em>Закрывает:</em> доверие было названо, но не показано. <em>Принцип:</em> содержание — пятая часть оценки.</span><span class="go">Показать →</span></button>
+    <button type="button" class="n" data-t="#masters-h"><span class="h"><i>09</i><b>Мастера: описание, цена, сортировка</b></span><span class="t">В карточке — как работает и чему учился, стаж, отзывы, точная цена, запись. Список можно выстроить по опыту, цене или отзывам.</span><span class="m"><em>Закрывает:</em> цену, сетку 4 + 2 и то, что описания были на другой странице. <em>Принцип:</em> человек сравнивает по своему признаку.</span><span class="go">Показать →</span></button>
+    <button type="button" class="n" data-t="#reviews"><span class="h"><i>10</i><b>Место под отзывы — пустое и подписанное</b></span><span class="t">На сайте студии текстов отзывов нет, только счётчик «112». Выдумывать нельзя, поэтому здесь рамка и две ссылки наружу.</span><span class="m"><em>Закрывает:</em> наполовину. <em>Принцип:</em> содержание должно быть настоящим.</span><span class="go">Показать →</span></button>
+    <button type="button" class="n" data-t="#faq"><span class="h"><i>11</i><b>Шесть ответов перед первым визитом</b></span><span class="t">Что будет на сеансе, что выбрать, что приносить, в чём остаются. Тексты студии, без изменений.</span><span class="m"><em>Закрывает:</em> доверие и вопрос «что выбрать». <em>Принцип:</em> сильные тексты стоило поднять из подвала.</span><span class="go">Показать →</span></button>
+    <button type="button" class="n" data-t="#gift"><span class="h"><i>12</i><b>Сертификат с выбором суммы</b></span><span class="t">Сумма выбирается на месте и попадает в подпись кнопки.</span><span class="m"><em>Принцип:</em> мелкая обратная связь — кнопка говорит, что именно произойдёт.</span><span class="go">Показать →</span></button>
+    <button type="button" class="n" data-t="#book"><span class="h"><i>13</i><b>Запись тремя способами</b></span><span class="t">Онлайн, по телефону, в мессенджере — одним блоком в конце, с напоминанием про акции.</span><span class="m"><em>Закрывает:</em> путь к главному действию. <em>Принцип:</em> удобство.</span><span class="go">Показать →</span></button>
+    <button type="button" class="n" data-t="#hero" data-phone="1"><span class="h"><i>14</i><b>Телефон продуман отдельно</b></span><span class="t">Главы остаются в шапке, кнопка записи прилипает после первого экрана, зоны нажатия не ниже 44 px.</span><span class="m"><em>Закрывает:</em> не было прилипающей кнопки, 41 мелкая ссылка. <em>Принцип:</em> телефон — не уменьшенный десктоп.</span><span class="go">Показать на телефоне →</span></button>
+    <div class="n"><span class="h"><i>15</i><b>Движение и скорость</b></span><span class="t">Движений три: слова поднимаются по очереди, блоки мягко появляются, кадр меняется вместе с услугой. Вся страница — 576 КБ, внешних запросов нет.</span><span class="m"><em>Принцип:</em> движение должно что-то сообщать; скорость — это дизайн.</span></div>
+
+    <div class="grp">Всё ли по Awwwards</div>
+    <p class="ans"><b>По ремеслу — да, по зрелищности — нет.</b> Идея, типографика, цвет, ритм, скорость, телефон сделаны по правилам. Эффектов, за которые дают «Сайт дня», нет — сознательно: страница работает на запись.</p>
+    <ul class="l">
+      <li><b>На телефоне страница длиннее нынешней:</b> около 11 740 px против 9 100. Добавились «как дойти», описания мастеров, вопросы.</li>
+      <li><b>Фото услуг прежние</b> — глянцевые лица. Заменить нечем; на телефоне скрыты.</li>
+      <li><b>Нет 3D, переходов страниц, сложной анимации.</b></li>
+      <li><b>Нет светлой темы</b>, текст 17 px вместо 18–20.</li>
     </ul>
-  </div>
-</div></section>
 
-<footer><div class="wrap">Прототипы — статические HTML, по одному файлу на концепт. Шрифты лежат в <code>fonts/</code>, трекеров нет. В концепте 2 фото лежат в <code>assets/photos/</code>; концепты 1 и 3 подгружают логотип и фотографии с myat.studio, им нужен интернет. Кнопки записи ведут в настоящий YCLIENTS студии.</div></footer>
+    <div class="grp">Не доделано</div>
+    <ul class="l">
+      <li>Отзывов нет — только помеченное место.</li>
+      <li>Точная цена мастера известна только для массажа тела на 60 минут.</li>
+      <li>Запись на четыре услуги ведёт в общее меню YCLIENTS.</li>
+      <li>Не проверено на настоящем телефоне и в Safari.</li>
+    </ul>
+
+    <div class="grp">Что нужно от студии</div>
+    <ul class="l">
+      <li>Фото: вход с улицы, барбершоп-ориентир, зона ожидания, кабинет.</li>
+      <li>Два-три отзыва, согласованных с клиентами.</li>
+      <li>Цены мастеров на 90 минут и остальные услуги.</li>
+      <li>Ссылки YCLIENTS на каждую услугу.</li>
+    </ul>
+
+    <p class="more"><a href="explain-2.html">Объяснения отдельным текстом, с таблицей проверок</a><br><a href="razbor.html">Разбор текущего сайта и другие концепты</a></p>
+  </aside>
+</div>
+
+<script>
+(() => {
+  const body = document.body, view = document.getElementById('view'), fw = document.getElementById('fw');
+  const frame = document.getElementById('proto'), notesEl = document.getElementById('notes'), hint = document.getElementById('hint');
+  const SRC = 'concepts/2-tri-slova.html';
+  const small = () => matchMedia('(max-width:760px)').matches;
+
+  // раскладка рамки: десктоп показывается в настоящей ширине 1440 и уменьшается, чтобы влезть; телефон — 390 px
+  const layout = () => {
+    const W = view.clientWidth, H = view.clientHeight;
+    let w, h, k, x = 0, y = 0;
+    if (small()) { w = W; h = H; k = 1; }
+    else if (body.dataset.device === 'phone') {
+      w = 390; h = 844; k = Math.min(1, (H - 40) / h);
+      x = Math.round((W - w * k) / 2); y = Math.max(18, Math.round((H - h * k) / 2));
+    } else {
+      w = Math.max(W, 1440); k = W / w; h = H / k;
+    }
+    fw.style.width = w + 'px'; fw.style.height = h + 'px';
+    fw.style.transform = `translate(${x}px,${y}px) scale(${k})`;
+  };
+  addEventListener('resize', layout); layout();
+
+  // доступ внутрь рамки есть, когда страницы на одном адресе (на GitHub Pages — да)
+  const doc = () => { try { return frame.contentDocument; } catch { return null; } };
+  const notes = [...document.querySelectorAll('.n[data-t]')];
+  const mark = (n) => notes.forEach((x) => x.classList.toggle('on', x === n));
+
+  let quiet = 0; // после нажатия не даём прокрутке тут же переставить подсветку
+  const go = (sel, note) => {
+    quiet = Date.now() + 1200;
+    mark(note);
+    const d = doc(), el = d && d.querySelector(sel);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      el.style.transition = 'outline-color .6s'; el.style.outline = '2px solid #D9B696'; el.style.outlineOffset = '10px';
+      setTimeout(() => { el.style.outlineColor = 'transparent'; }, 1400);
+      setTimeout(() => { el.style.outline = ''; el.style.outlineOffset = ''; }, 2100);
+    } else {
+      frame.src = SRC + sel; // без доступа внутрь — переход по якорю
+    }
+  };
+  notes.forEach((n) => n.addEventListener('click', () => {
+    if (n.dataset.phone && !small()) setDevice('phone');
+    if (small()) setTab('proto');
+    setTimeout(() => go(n.dataset.t, n), n.dataset.phone || small() ? 350 : 0);
+  }));
+
+  // прокрутка прототипа подсвечивает соответствующий пункт
+  const order = [...new Set(notes.filter((n) => !n.dataset.phone).map((n) => n.dataset.t))];
+  const sync = () => {
+    if (Date.now() < quiet) return;
+    const d = doc(); if (!d) return;
+    const edge = frame.contentWindow.innerHeight * 0.4;
+    let cur = order[0];
+    for (const sel of order) { const el = d.querySelector(sel); if (el && el.getBoundingClientRect().top <= edge) cur = sel; }
+    const n = notes.find((x) => x.dataset.t === cur);
+    if (n && !n.classList.contains('on')) {
+      mark(n);
+      if (!notesEl.matches(':hover') && !small()) {
+        const r = n.getBoundingClientRect(), p = notesEl.getBoundingClientRect();
+        if (r.top < p.top + 10 || r.bottom > p.bottom - 10) notesEl.scrollTo({ top: notesEl.scrollTop + r.top - p.top - 90 });
+      }
+    }
+  };
+  frame.addEventListener('load', () => {
+    try { frame.contentWindow.addEventListener('scroll', sync, { passive: true }); sync(); } catch {}
+  });
+
+  const setDevice = (dv) => {
+    body.dataset.device = dv;
+    document.querySelectorAll('.dev button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.device === dv));
+    layout();
+  };
+  document.querySelectorAll('.dev button').forEach((b) => b.addEventListener('click', () => setDevice(b.dataset.device)));
+
+  const tog = document.getElementById('tog');
+  tog.addEventListener('click', () => {
+    const off = body.classList.toggle('notes-off');
+    tog.setAttribute('aria-pressed', !off); layout();
+  });
+
+  const setTab = (t) => {
+    body.dataset.tab = t;
+    document.querySelectorAll('.tabs button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.tab === t));
+  };
+  document.querySelectorAll('.tabs button').forEach((b) => b.addEventListener('click', () => setTab(b.dataset.tab)));
+
+  // подсказка на несколько секунд
+  setTimeout(() => hint.classList.add('on'), 900);
+  setTimeout(() => hint.classList.remove('on'), 6500);
+})();
+</script>
 </body>
 </html>
