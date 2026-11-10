@@ -1,7 +1,13 @@
 # «Мять», Ботанический сад — разбор и три концепта редизайна
 
 Разбор страницы <https://myat.studio/?studio=botsad> по принципам Awwwards и три статических прототипа.
-Открывать с `index.html` — там разбор, скриншоты и ссылки.
+**Открыть в браузере:**
+
+- Концепт 2, подробная версия: <https://daniilglushko.github.io/myat-studio-concepts/concepts/2-tri-slova.html>
+- Почему он так устроен: <https://daniilglushko.github.io/myat-studio-concepts/explain-2.html>
+- Разбор и все три концепта: <https://daniilglushko.github.io/myat-studio-concepts/>
+
+Страницы закрыты от поисковиков (`noindex`).
 
 ## Что не так сейчас
 
